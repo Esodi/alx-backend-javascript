@@ -7,7 +7,7 @@ function getFullResponseFromAPI(success) {
     if (success) {
       resolve(obj);
     } else {
-      reject(new Error(x));
+      reject(x);
     }
   });
 }
