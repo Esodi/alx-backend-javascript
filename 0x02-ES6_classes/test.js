@@ -1,24 +1,45 @@
-import Currency from './3-currency.js';
-
-const usd = new Currency('USD', 'United States Dollar');
-
-console.log(usd.code); // USD
-console.log(usd.name); // United States Dollar
-usd.displayFullCurrency(); // United States Dollar (USD)
-
-usd.code = 'EUR';
-usd.name = 'Euro';
-usd.displayFullCurrency(); // Euro (EUR)
+// main.js
+import HolbertonCourse from './2-hbtn_course.js';
 
 try {
-    usd.code = 123; // This will throw an error
-} catch (e) {
-    console.error(e.message); // Code must be a string
-}
+  // Creating an instance of HolbertonCourse
+  const course = new HolbertonCourse('JavaScript 101', 10, ['John Doe', 'Jane Smith']);
+  
+  // Displaying the initial properties
+  console.log('Course Name:', course.name);
+  console.log('Course Length:', course.length);
+  console.log('Course Students:', course.students);
 
-try {
-    usd.name = { name: 'Pound' }; // This will throw an error
-} catch (e) {
-    console.error(e.message); // Name must be a string
+  // Modifying the properties
+  course.name = 'Advanced JavaScript';
+  course.length = 15;
+  course.students = ['Alice Johnson', 'Bob Brown'];
+
+  // Displaying the modified properties
+  console.log('Updated Course Name:', course.name);
+  console.log('Updated Course Length:', course.length);
+  console.log('Updated Course Students:', course.students);
+
+  // Trying to set invalid values to trigger errors
+  try {
+    course.name = 123; // Should throw an error
+  } catch (error) {
+    console.error('Error setting name:', error.message);
+  }
+
+  try {
+    course.length = -5; // Should throw an error
+  } catch (error) {
+    console.error('Error setting length:', error.message);
+  }
+
+  try {
+    course.students = 'Not an array'; // Should throw an error
+  } catch (error) {
+    console.error('Error setting students:', error.message);
+  }
+
+} catch (error) {
+  console.error('Error creating course:', error.message);
 }
 
